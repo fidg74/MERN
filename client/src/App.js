@@ -1,9 +1,34 @@
-import React from 'react'
+import React, {useState} from 'react';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+
+
+import HomePage from './pages/HomePage/HomePage';
+import AuthPage from './pages/AuthPage/AuthPage';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
 
 function App() {
-  return (<div>
-    <h1>Hello</h1>
-  </div>)
+
+  const [isAuth, setIsAuth] = useState()
+
+  return (
+    <div className="wrapper">
+      <Router>
+        <Switch>
+        <Route path="/" exact component={HomePage} />
+        {isAuth &&
+          <>
+            <Route path="/auth" component={AuthPage} />
+            <Route path="/register" component={RegisterPage} />
+          </>
+        } else {
+          <Redirect to="/" />
+        }
+        </Switch>
+      </Router>
+      
+    </div>
+    
+  )
 }
 
 export default App;
