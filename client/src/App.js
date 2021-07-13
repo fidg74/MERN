@@ -15,9 +15,10 @@ function App() {
       <Router>
         <Switch>
         <Route path="/" exact component={HomePage} />
+        <Route path="/auth" component={AuthPage} />
         {isAuth &&
           <>
-            <Route path="/auth" component={AuthPage} />
+            
             <Route path="/register" component={RegisterPage} />
           </>
         } else {

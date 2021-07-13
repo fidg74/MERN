@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './HomePage.css'
 import 'materialize-css'
 
@@ -6,10 +6,10 @@ import 'materialize-css'
 
 const HomePage = () => {
 
-    const user = {
-        id: 1,
-        name: 'Илья'
-    }
+    // const user = {
+    //     id: 1,
+    //     name: 'Илья'
+    // }
 
     // const [isAuth, setIsAuth] = useState()
 
