@@ -11,12 +11,12 @@ const HomePage = () => {
         name: 'Илья'
     }
 
-    const [isAuth, setIsAuth] = useState(true)
+    // const [isAuth, setIsAuth] = useState()
 
     return (
         <div className="container">
             <h1>Home Page</h1>
-            {isAuth ? <button>{user.name}</button> : <button>{user.id}</button>}
+            {/* {isAuth ? <button>{user.name}</button> : <button>{user.id}</button>} */}
         </div>
     )
 }

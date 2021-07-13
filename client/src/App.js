@@ -8,7 +8,7 @@ import RegisterPage from './pages/RegisterPage/RegisterPage';
 
 function App() {
 
-  const [isAuth, setIsAuth] = useState()
+  const [isAuth, setIsAuth] = useState(true)
 
   return (
     <div className="wrapper">
