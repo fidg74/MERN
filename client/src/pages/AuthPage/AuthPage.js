@@ -8,7 +8,7 @@ const AuthPage = () => {
     const message = useMessage()
     const {loading, request, error, clearError} = useHttp()
     const [form, setForm] = useState({
-        email: '', password: ''
+        name: '', email: '', password: ''
     })
 
     useEffect(() => {
@@ -24,9 +24,10 @@ const AuthPage = () => {
         try {
             
             const data = await request('/api/auth/register', 'POST', {...form})
-            console.log('ПЕССССССССССССССС', data)
+            // console.log('', data)
+            message('Вы успешно зарегистрировались')
         } catch (e) {
-            console.log(e.message)
+            message(error)
         }
     }
 
@@ -45,6 +46,15 @@ const AuthPage = () => {
                     <div className="card-content white-text">
                         <span className="card-title">Авторизация</span>
                         <div>
+                        <div className="input-field">
+                            <input 
+                                   id="name"
+                                   type="text"
+                                   name="name"
+                                   className="validate white-text"
+                                   onChange={changeHandler} />
+                                <label htmlFor="name" className="white-text">Введите Имя</label>
+                            </div>
                             <div className="input-field">
                             <input 
                                    id="email"
