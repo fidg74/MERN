@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './AuthPage.css'
 import 'materialize-css'
 import {useHttp} from '../../hooks/http.hook'
@@ -8,6 +8,10 @@ const AuthPage = () => {
     const [form, setForm] = useState({
         email: '', password: ''
     })
+
+    useEffect(() => {
+
+    }, [error])
 
     const changeHandler = event => {
         setForm({...form, [event.target.name]: event.target.value})
@@ -40,9 +44,9 @@ const AuthPage = () => {
                         <div>
                             <div className="input-field">
                             <input 
-                                //    placeholder="Введите email"
                                    id="email"
                                    type="text"
+                                   name="email"
                                    className="validate white-text"
                                    onChange={changeHandler} />
                                 <label htmlFor="email" className="white-text">Введите email</label>
@@ -51,6 +55,7 @@ const AuthPage = () => {
                                 <input 
                                     id="password"
                                     type="password" 
+                                    name="password"
                                     className="validate white-text"
                                     onChange={changeHandler} />
                                 <label htmlFor="password" className="white-text">Введите пароль</label>
