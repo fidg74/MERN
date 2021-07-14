@@ -2,16 +2,19 @@ import React, {useEffect, useState} from 'react'
 import './AuthPage.css'
 import 'materialize-css'
 import {useHttp} from '../../hooks/http.hook'
+import {useMessage} from '../../hooks/message.hook'
 
 const AuthPage = () => {
-    const {loading, request} = useHttp()
+    const message = useMessage()
+    const {loading, request, error, clearError} = useHttp()
     const [form, setForm] = useState({
         email: '', password: ''
     })
 
     useEffect(() => {
-
-    }, [error])
+        message(error)
+        clearError()
+    }, [error, message])
 
     const changeHandler = event => {
         setForm({...form, [event.target.name]: event.target.value})
