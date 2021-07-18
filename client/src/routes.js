@@ -13,7 +13,7 @@ export const useRoutes = isAuth => {
             <Switch>
                 <Route exact path="/main" component={MainPage} />
               
-                
+                {/* <Redirect to="main" /> */}
             </Switch>
         )
     }

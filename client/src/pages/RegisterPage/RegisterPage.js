@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import { Link } from 'react-router-dom';
 import './RegisterPage.css'
 import 'materialize-css'
 import {useHttp} from '../../hooks/http.hook'
@@ -78,12 +79,20 @@ const RegisterPage = () => {
                 </div>
                 <div className="card-action">     
                     <button 
+                        style={{marginRight: 40}}
                         className="btn grey darken-2"
                         onClick={registerHandler}
                         disabled={loading}
                     >
                         Регистрация
                     </button>
+                    <Link to="/">
+                    <button 
+                        className="btn orange darken-2"
+                    >
+                        Назад
+                    </button>
+                    </Link>
                 </div>
             </div>    
         </div>        

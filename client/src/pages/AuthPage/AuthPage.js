@@ -1,4 +1,5 @@
 import React, {useEffect, useContext, useState} from 'react'
+import { Link } from 'react-router-dom'
 import './AuthPage.css'
 import 'materialize-css'
 import {useHttp} from '../../hooks/http.hook'
@@ -60,14 +61,22 @@ const AuthPage = () => {
                         </div>
                     </div>
                     <div className="card-action">
-                        <button 
+                        <button
+                            
                             className="btn yellow darken-3" 
-                            style={{marginRight: 10}} 
+                            style={{marginRight: 40}} 
                             disabled={loading}
                             onClick={loginHandler}
                         >
                             Войти
                         </button>
+                        <Link to="/">
+                    <button 
+                        className="btn orange darken-2"
+                    >
+                        Назад
+                    </button>
+                    </Link>
                     </div>
                 </div>
                 
