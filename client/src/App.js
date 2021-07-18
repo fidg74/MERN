@@ -1,34 +1,24 @@
-import React, {useState} from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import {useRoutes} from './routes'
+import { useAuth } from './hooks/auth.hook';
+import { AuthContext } from './context/AuthContext';
 
 
-import HomePage from './pages/HomePage/HomePage';
-import AuthPage from './pages/AuthPage/AuthPage';
-import RegisterPage from './pages/RegisterPage/RegisterPage';
 
 function App() {
-
-  const [isAuth, setIsAuth] = useState(true)
+  const {token, login, logout, userID} = useAuth()
+  const isAuth = !!token
+  const routes = useRoutes(isAuth)
 
   return (
-    <div className="wrapper">
+    <AuthContext.Provider value={{token, login, logout, userID, isAuth}}>
       <Router>
         <Switch>
-        <Route path="/" exact component={HomePage} />
-        <Route path="/auth" component={AuthPage} />
-        {isAuth &&
-          <>
-            
-            <Route path="/register" component={RegisterPage} />
-          </>
-        } else {
-          <Redirect to="/" />
-        }
+            {routes}
         </Switch>
       </Router>
-      
-    </div>
-    
+    </AuthContext.Provider>
   )
 }
 
