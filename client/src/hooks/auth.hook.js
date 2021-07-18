@@ -7,7 +7,7 @@ export const useAuth = () => {
     const [token, setToken] = useState()
     const [userID, setUserID] = useState()
 
-    const login = useCallback( (jwtToken, id) => {
+    const login = useCallback((jwtToken, id) => {
         setToken(jwtToken)
         setUserID(id)
 
@@ -16,13 +16,13 @@ export const useAuth = () => {
         }))
     }, [])
 
-    const logout = useCallback( () => {
+    const logout = useCallback(() => {
         setToken()
         setUserID()
         localStorage.removeItem(storageName)
     }, [])
 
-    useEffect( () => {
+    useEffect(() => {
         const data = JSON.parse(localStorage.getItem(storageName))
 
         if (data && data.token) {
@@ -30,5 +30,5 @@ export const useAuth = () => {
         }
     }, [login])
 
-    return {login, logout, token, userID}
+    return { login, logout, token, userID }
 }

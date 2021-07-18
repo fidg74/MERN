@@ -10,30 +10,25 @@ import MainPage from './pages/MainPage/MainPage';
 import AboutPage from './pages/AboutPage/AboutPage';
 
 function App() {
-  const {token, login, logout, userID} = useAuth()
+  const { token, login, logout, userID } = useAuth()
   const isAuth = token
 
   return (
-    <AuthContext.Provider value={{token, login, logout, userID}}>
+    <AuthContext.Provider value={{ token, login, logout, userID }}>
       <Router>
         <Switch>
-        { isAuth &&
+          {isAuth &&
             <>
               <Route path="/mainPage/user=/:id" exact component={MainPage} />
               <Route exact path="/mainPage" component={MainPage} />
               <Route exact path="/aboutPage" component={AboutPage} />
               <Redirect to="/mainPage/user=/:id" />
             </>
-            }
+          }
           <Route path="/" exact component={HomePage} />
           <Route path="/authorization" component={AuthPage} />
           <Route path="/registration/admin" component={RegisterPage} />
           <Redirect to="/" />
-        {/* { isAuth && <Header />}
-            {routes} */}
-
-
-            
         </Switch>
       </Router>
     </AuthContext.Provider>
