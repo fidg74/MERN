@@ -19,10 +19,10 @@ function App() {
         <Switch>
           {isAuth &&
             <>
-              <Route path="/mainPage/user=/:id" exact component={MainPage} />
+              <Route path="/" exact component={HomePage} />
               <Route exact path="/mainPage" component={MainPage} />
               <Route exact path="/aboutPage" component={AboutPage} />
-              <Redirect to="/mainPage/user=/:id" />
+              <Redirect to="/mainPage" />
             </>
           }
           <Route path="/" exact component={HomePage} />

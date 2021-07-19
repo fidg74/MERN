@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { NavLink, Link, useHistory } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
+import { useAuth } from '../../hooks/auth.hook';
 
 
 
@@ -14,14 +15,22 @@ export const Header = () => {
 		history.push('/')
 	}
 
+	const { token, login, logout, userID } = useAuth()
+	const isAuth = token
+
 	return (
 		<nav>
 			<div class="nav-wrapper">
 				<Link href="/" class="brand-logo">Logo</Link>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><NavLink to="/mainPage/user=/:id" >Главная</NavLink></li>
+					<li><NavLink to="/" >Главная</NavLink></li>
 					<li><NavLink to="/aboutPage" >About</NavLink></li>
-					<li><a href="/" onClick={logoutHandler}>Выйти</a></li>
+					{isAuth ? <li><a href="/" onClick={logoutHandler}>Выйти</a></li> :
+						
+							<li><Link to="/authorization">Войти</Link></li>
+							
+						
+					}
 				</ul>
 			</div>
 		</nav>

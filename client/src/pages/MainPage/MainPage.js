@@ -10,7 +10,7 @@ const MainPage = () => {
             <Header></Header>
             <h1>Main Page</h1>
             <p>Authorization done</p>
-            <Link to="/aboutPage">About</Link>
+            <Link to="/">Домой</Link>
         </div>
     )
 }
