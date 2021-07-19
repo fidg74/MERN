@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import './HomePage.css'
 import 'materialize-css'
 import { useAuth } from '../../hooks/auth.hook';
-import { Header } from '../../layout/Header/Header'
 
+import {Header} from '../../components/layout/Header/Header'
+
+import HomeImg from '../../assets/images/home.png'
 
 
 const HomePage = () => {
@@ -23,6 +25,7 @@ const HomePage = () => {
                     <Link to="/registration/admin">Регистрация</Link>
                 </div>
             }
+            <img style={{width: 1140}} src={HomeImg} />
         </div>
     )
 }

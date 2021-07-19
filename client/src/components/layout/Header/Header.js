@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { NavLink, Link, useHistory } from 'react-router-dom'
-import { AuthContext } from '../../context/AuthContext'
-import { useAuth } from '../../hooks/auth.hook';
+import { AuthContext } from '../../../auth/AuthContext'
+import { useAuth } from '../../../hooks/auth.hook';
 
 
 
@@ -21,7 +21,6 @@ export const Header = () => {
 	return (
 		<nav>
 			<div class="nav-wrapper">
-				<Link href="/" class="brand-logo">Logo</Link>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li><NavLink to="/" >Главная</NavLink></li>
 					<li><NavLink to="/aboutPage" >About</NavLink></li>

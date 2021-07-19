@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { useAuth } from './hooks/auth.hook';
-import { AuthContext } from './context/AuthContext';
+import { AuthContext } from './auth/AuthContext';
 
 import HomePage from './pages/HomePage/HomePage';
 import AuthPage from './pages/AuthPage/AuthPage';

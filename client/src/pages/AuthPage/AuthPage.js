@@ -4,7 +4,7 @@ import './AuthPage.css'
 import 'materialize-css'
 import { useHttp } from '../../hooks/http.hook'
 import { useMessage } from '../../hooks/message.hook'
-import { AuthContext } from '../../context/AuthContext'
+import { AuthContext } from '../../auth/AuthContext'
 
 const AuthPage = () => {
     const auth = useContext(AuthContext)

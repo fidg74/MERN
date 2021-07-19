@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './AboutPage.css'
 import 'materialize-css'
 
-import {Header} from '../../layout/Header/Header'
+import {Header} from '../../components/layout/Header/Header'
 
 
 

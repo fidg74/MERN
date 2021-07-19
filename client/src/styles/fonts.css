@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'Gilroy-Bold';
+	src: url('../assets/fonts/gilroy-bold.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../assets/fonts/gilroy-bold.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+	font-family: 'Gilroy-Medium';
+	src: url('../assets/fonts/gilroy-medium.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../assets/fonts/gilroy-medium.ttf') format('truetype'), /* Safari, Android, iOS */
+}
