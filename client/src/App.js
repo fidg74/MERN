@@ -19,14 +19,14 @@ function App() {
         <Switch>
           {isAuth &&
             <>
-              <Route path="/" exact component={HomePage} />
-              <Route exact path="/mainPage" component={MainPage} />
-              <Route exact path="/aboutPage" component={AboutPage} />
-              <Redirect to="/mainPage" />
+              <Route path="/create" exact component={HomePage} />
+              <Route exact path="/links" component={MainPage} />
+              <Route exact path="/detail/:id" component={AboutPage} />
+              <Redirect to="/create" />
             </>
           }
-          <Route path="/" exact component={HomePage} />
-          <Route path="/authorization" component={AuthPage} />
+          {/* <Route path="/" exact component={HomePage} /> */}
+          <Route path="/" exact component={AuthPage} />
           <Route path="/registration/admin" component={RegisterPage} />
           <Redirect to="/" />
         </Switch>

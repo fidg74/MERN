@@ -1,31 +1,49 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react'
 import './HomePage.css'
 import 'materialize-css'
-import { useAuth } from '../../hooks/auth.hook';
+import { Header } from '../../components/layout/Header/Header'
 
-import {Header} from '../../components/layout/Header/Header'
-
-import HomeImg from '../../assets/images/home.png'
-
+import {useHttp} from '../../hooks/http.hook'
+import {AuthContext} from '../../auth/AuthContext'
 
 const HomePage = () => {
+    const auth = useContext(AuthContext)
+    const {request} = useHttp()
+    const [link, setLink] = useState('')
 
-    const { token, login, logout, userID } = useAuth()
-    const isAuth = token
+    useEffect(() => {
+        window.M.updateTextFields()
+    }, [])
 
+    const pressHandler = async event => {
+        if (event.key === 'Enter') {
+            try {
+                const data = await request('/api/link/generate', 'POST', {from: link}, {
+                    Authorization: `Bearer ${auth.token}`
+                  })
+                console.log(data)
+            } catch (err) {
+
+            }
+        }
+    }
     return (
         <div className="container">
             <Header />
-            <h1>Home Page</h1>
-
-            {isAuth ? <Link to="/mainPage">Выйти</Link> :
-                <div>
-                    <Link to="/authorization" style={{ marginRight: 20 }}>Авторизация</Link>
-                    <Link to="/registration/admin">Регистрация</Link>
-                </div>
-            }
-            <img style={{width: 1140}} src={HomeImg} />
+            <h1>Create Page</h1>
+            <div className="input-field">
+                <input
+                placeholder="Вставьте ссылку"
+                    id="link"
+                    type="text"
+                    name="link"
+                    className="validate"
+                    // value={link}
+                    onChange={e => setLink(e.target.value)}
+                    onKeyPress={pressHandler}
+                    />
+                <label htmlFor="link" className="">Вставьте ссылку</label>
+            </div>
         </div>
     )
 }

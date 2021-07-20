@@ -6,6 +6,7 @@ import { useHttp } from '../../hooks/http.hook'
 import { useMessage } from '../../hooks/message.hook'
 import { AuthContext } from '../../auth/AuthContext'
 
+
 const AuthPage = () => {
     const auth = useContext(AuthContext)
     const message = useMessage()
@@ -50,6 +51,7 @@ const AuthPage = () => {
                                     type="text"
                                     name="login"
                                     className="validate white-text"
+                                    value={form.login}
                                     onChange={changeHandler} />
                                 <label htmlFor="login" className="white-text">Введите login</label>
                             </div>
@@ -59,6 +61,7 @@ const AuthPage = () => {
                                     type="password"
                                     name="password"
                                     className="validate white-text"
+                                    value={form.password}
                                     onChange={changeHandler} />
                                 <label htmlFor="password" className="white-text">Введите пароль</label>
                             </div>
